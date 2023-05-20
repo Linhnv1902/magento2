@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+      <head>
+      	<css src="Linhnv_ChatSystem::css/font-awesome.min.css" />
+        <css src="Linhnv_ChatSystem::css/styles.css" />
+
+      </head>
+    <body>
+    	<referenceContainer name="content">
+			<block class="Linhnv\ChatSystem\Block\Adminhtml\Notifications\Chat" name="notifications_chat" template="notifications/chat.phtml"/>
+		</referenceContainer>
+    </body>
+</page>

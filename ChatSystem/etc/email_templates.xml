@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="linhnvchatsystem_email_settings_customer_chat_template" label="Customer Chat" file="notification_new_chat_template.html" type="html" module="Linhnv_ChatSystem" area="frontend"/>
+    <template id="linhnvchatsystem_email_settings_admin_reply_template" label="Admin Chat" file="notification_admin_reply_template.html" type="html" module="Linhnv_ChatSystem" area="frontend"/>
+</config>

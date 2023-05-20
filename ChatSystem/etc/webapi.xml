@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<!-- Backend -->
+	<route url="/V1/chat-support/chat" method="POST">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat_save"/>
+		</resources>
+	</route>
+	<route url="/V1/chat-support/chat/search" method="GET">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat"/>
+		</resources>
+	</route>
+	<route url="/V1/chat-support/chat/:chatId" method="GET">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat"/>
+		</resources>
+	</route>
+	<route url="/V1/chat-support/chat/:chatId" method="PUT">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat_save"/>
+		</resources>
+	</route>
+	<route url="/V1/chat-support/chat/:chatId" method="DELETE">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat_delete"/>
+		</resources>
+	</route>
+
+	<route url="/V1/chat-support/message" method="POST">
+		<service class="Linhnv\ChatSystem\Api\MessageRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat_save"/>
+		</resources>
+	</route>
+	<route url="/V1/chat-support/message/search" method="GET">
+		<service class="Linhnv\ChatSystem\Api\MessageRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat"/>
+		</resources>
+	</route>
+
+	<!-- To Do-->
+	<route url="/V1/chat-support/sendChatMessage/:chatId" method="PUT">
+		<service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="sendAdminChatMessage"/>
+		<resources>
+			<resource ref="Linhnv_ChatSystem::chat_save"/>
+		</resources>
+	</route>
+
+	<!-- Frontend -->
+
+	<route url="/V1/chat-support/mine/myChat" method="GET">
+        <service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="getMyChat"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+		<data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/chat-support/mine/sendChatMessage" method="POST">
+        <service class="Linhnv\ChatSystem\Api\ChatRepositoryInterface" method="sendCustomerChatMessage"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

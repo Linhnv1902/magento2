@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Linhnv_ChatSystem::chatsystem" title="Chat" module="Linhnv_ChatSystem" sortOrder="280" icon="fa fa-commenting-o" resource="Linhnv_ChatSystem::chatsystem"/>
+    	<add id="Linhnv_ChatSystem::chat" title="Chat with customer" module="Linhnv_ChatSystem" action="linhnvchatsystem/chat/index" sortOrder="10"  resource="Linhnv_ChatSystem::chat" parent="Linhnv_ChatSystem::chatsystem" />
+    </menu>
+</config>

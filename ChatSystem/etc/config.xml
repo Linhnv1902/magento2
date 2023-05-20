@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<linhnvchatsystem>
+			<general_settings>
+				<enable>1</enable>
+			</general_settings>
+			<chat>
+				<enable>1</enable>
+				<text_label>Chat With Us</text_label>
+				<background_color>#293239</background_color>
+				<enable_blacklist>1</enable_blacklist>
+				<welcome_message>Welcome to our site, if you need help simply reply to this message, we are online and ready to help.</welcome_message>
+				<auto_message/>
+				<auto_user_name>Bot</auto_user_name>
+			</chat>
+			<system>
+				<enable_clean_log>0</enable_clean_log>
+				<clean_older_day>30</clean_older_day>
+				<enable_auto_assign_user>0</enable_auto_assign_user>
+				<admin_user_id/>
+			</system>
+		</linhnvchatsystem>
+	</default>
+</config>

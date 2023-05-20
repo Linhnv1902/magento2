@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <update handle="linhnvchatsystem_admin_default"/>
+    <body>
+    	<!-- <referenceContainer name="content">
+			<block class="Linhnv\ChatSystem\Block\Adminhtml\Chat\Edit\Tab\Main" name="chat_chatsystem" template="chat/chat.phtml"/>
+		</referenceContainer>   -->
+        <referenceContainer name="content">
+            <block class="Linhnv\ChatSystem\Block\Adminhtml\Chat\Edit" name="linhnvchatsystem_chat_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Linhnv\ChatSystem\Block\Adminhtml\Chat\Edit\Tabs" name="linhnvchatsystem_chat_edit_tabs"/>
+        </referenceContainer>
+    </body>
+</page>

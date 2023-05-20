@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="Lof_All::lib/bootstrap/css/bootstrap-tiny.css" />
+		 <css src="Lof_All::lib/bootstrap/css/bootstrap.min.css" />
+		<css src="Lof_All::lib/owl.carousel/assets/owl.carousel.css" />
+		<css src="Lof_All::lib/fancybox/jquery.fancybox.css" />
+		<css src="Linhnv_ChatSystem::css/font-awesome.min.css" />
+		<css src="Linhnv_ChatSystem::css/styles.css" />
+	</head>
+	<body>
+        <referenceContainer name="before.body.end">
+            <block class="Linhnv\ChatSystem\Block\Chat\Chat" name="chat.message"  ifconfig="linhnvchatsystem/chat/enable"  template="chat/chat.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

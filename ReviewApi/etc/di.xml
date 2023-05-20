@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Linhnv\ReviewApi\Api\Data\ReviewInterface" type="Linhnv\ReviewApi\Model\Data\Review"/>
+    <preference for="Linhnv\ReviewApi\Api\Data\RatingVoteInterface" type="Linhnv\ReviewApi\Model\Data\RatingVote"/>
+    <preference for="Linhnv\ReviewApi\Api\GetProductReviewsInterface" type="Linhnv\ReviewApi\Model\GetProductReviews"/>
+    <preference for="Linhnv\ReviewApi\Api\ReviewRepositoryInterface" type="Linhnv\ReviewApi\Model\ReviewRepository"/>
+    <preference for="Linhnv\ReviewApi\Model\Review\Command\DeleteByIdInterface" type="Linhnv\ReviewApi\Model\Review\Command\DeleteById"/>
+    <preference for="Linhnv\ReviewApi\Model\Review\Command\SaveInterface" type="Linhnv\ReviewApi\Model\Review\Command\Save"/>
+    <preference for="Linhnv\ReviewApi\Model\Review\Command\GetInterface" type="Linhnv\ReviewApi\Model\Review\Command\Get"/>
+    <preference for="Linhnv\ReviewApi\Model\Review\Command\GetListInterface" type="Linhnv\ReviewApi\Model\Review\Command\GetList"/>
+    <preference for="Linhnv\ReviewApi\Model\ReviewValidatorInterface" type="Linhnv\ReviewApi\Model\ReviewValidationChain"/>
+
+    <preference for="Linhnv\ReviewApi\Api\Data\ReviewSearchResultInterface" type="Linhnv\ReviewApi\Model\ReviewSearchResult"/>
+    <preference for="Linhnv\ReviewApi\Model\Review\ReviewTypeResolverInterface" type="Linhnv\ReviewApi\Model\Review\ReviewTypeResolver"/>
+
+    <type name="Linhnv\ReviewApi\Model\ReviewValidationChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="title" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\TitleValidator</item>
+                <item name="detail" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\DetailValidator</item>
+                <item name="nickname" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\NicknameValidator</item>
+                <item name="review_entity" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\ReviewEntityValidator</item>
+                <item name="entity_pk_value" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\EntityPkValueValidator</item>
+                <item name="stores" xsi:type="object">Linhnv\ReviewApi\Model\Review\Validator\StoresValidator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

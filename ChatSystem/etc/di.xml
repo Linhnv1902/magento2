@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Linhnv\ChatSystem\Api\ChatRepositoryInterface" type="Linhnv\ChatSystem\Model\ChatRepository"/>
+	<preference for="Linhnv\ChatSystem\Api\Data\ChatInterface" type="Linhnv\ChatSystem\Model\Data\Chat"/>
+	<preference for="Linhnv\ChatSystem\Api\Data\ChatSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Linhnv\ChatSystem\Api\MessageRepositoryInterface" type="Linhnv\ChatSystem\Model\MessageRepository"/>
+	<preference for="Linhnv\ChatSystem\Api\Data\MessageInterface" type="Linhnv\ChatSystem\Model\Data\Message"/>
+	<preference for="Linhnv\ChatSystem\Api\Data\MessageSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="linhnvchatsystem_chat_listing_data_source" xsi:type="string">Linhnv\ChatSystem\Model\ResourceModel\Chat\Grid\Collection</item>
+                <item name="linhnvchatsystem_blacklist_listing_data_source" xsi:type="string">Linhnv\ChatSystem\Model\ResourceModel\Blacklist\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+		<arguments>
+			<argument name="commands" xsi:type="array">
+				<item name="Cleancache" xsi:type="object">Linhnv\ChatSystem\Console\Command\Cleanlogs</item>
+			</argument>
+		</arguments>
+	</type>
+
+    <type name="Linhnv\ChatSystem\Model\ResourceModel\Blacklist\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">linhnv_chatsystem_blacklist</argument>
+            <argument name="eventPrefix" xsi:type="string">linhnvchatsystem_blacklist_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">blacklist_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Linhnv\ChatSystem\Model\ResourceModel\Blacklist</argument>
+        </arguments>
+    </type>
+
+     <type name="Linhnv\ChatSystem\Model\ResourceModel\Chat\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">linhnv_chatsystem_chat</argument>
+            <argument name="eventPrefix" xsi:type="string">linhnvchatsystem_chat_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">chat_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Linhnv\ChatSystem\Model\ResourceModel\Chat</argument>
+        </arguments>
+    </type>
+    <virtualType name="ChatSystemGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ChatGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Linhnv\ChatSystem\Model\ResourceModel\Chat\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ChatSystemGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>

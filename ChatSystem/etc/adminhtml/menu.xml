@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Linhnv_ChatSystem::chatsystem" sortOrder="10" title="Support" module="Linhnv_ChatSystem" resource="Magento_Backend::chatsystem_elements"/>
+		<add id="Linhnv_ChatSystem::chat" title="Chat" module="Linhnv_ChatSystem" sortOrder="75" parent="Linhnv_ChatSystem::chatsystem" action="linhnvchatsystem/chat/index" resource="Linhnv_ChatSystem::chat"/>
+		<add id="Linhnv_ChatSystem::blacklist_manage" title="Manage Blacklist" module="Linhnv_ChatSystem" sortOrder="76" parent="Linhnv_ChatSystem::chatsystem" action="linhnvchatsystem/blacklist/index" resource="Linhnv_ChatSystem::blacklist"/>
+		<add id="Linhnv_ChatSystem::settings" title="Configuration" module="Linhnv_ChatSystem" sortOrder="150" action="adminhtml/system_config/edit/section/linhnvchatsystem" resource="Linhnv_ChatSystem::config_chatsystem" parent="Linhnv_ChatSystem::chatsystem"/>
+	</menu>
+</config>
